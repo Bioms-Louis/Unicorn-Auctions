@@ -112,7 +112,7 @@ export function SiteFooter() {
                                 Follow Us
                             </p>
 
-                            <div className="mt-4 flex items-center gap-3">
+                            <div className="mt-4 flex items-center text-white/65 gap-3">
                                 <Link
                                     href="https://instagram.com/"
                                     target="_blank"
