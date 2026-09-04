@@ -10,6 +10,12 @@ import {
     Check,
     X
 } from "lucide-react";
+import {
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+    FaXTwitter,
+} from "react-icons/fa6";
 
 const menu = [
     { label: "Auctions", href: "/auctions" },
@@ -114,7 +120,7 @@ export function SiteFooter() {
                                     aria-label="Instagram"
                                     className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:border-white hover:bg-white hover:text-ink"
                                 >
-                                    {/* <FaInstagram className="h-4 w-4" /> */}
+                                    <FaInstagram className="h-4 w-4" />
                                 </Link>
 
                                 <Link
@@ -124,7 +130,7 @@ export function SiteFooter() {
                                     aria-label="Facebook"
                                     className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:border-white hover:bg-white hover:text-ink"
                                 >
-                                    {/* <FaFacebook className="h-4 w-4" /> */}
+                                    <FaFacebookF className="h-4 w-4" />
                                 </Link>
 
                                 <Link
@@ -134,7 +140,16 @@ export function SiteFooter() {
                                     aria-label="LinkedIn"
                                     className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:border-white hover:bg-white hover:text-ink"
                                 >
-                                    {/* <FaLinkedin className="h-4 w-4" /> */}
+                                    <FaLinkedinIn className="h-4 w-4" />
+                                </Link>
+                                <Link
+                                    href="https://x.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="X"
+                                    className="flex h-10 w-10 items-center justify-center border border-white/15 transition-colors hover:border-white hover:bg-white hover:text-ink"
+                                >
+                                    <FaXTwitter className="h-4 w-4" />
                                 </Link>
                             </div>
                         </div>

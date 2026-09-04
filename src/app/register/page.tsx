@@ -13,12 +13,14 @@ export default function RegisterPage() {
     <div className="mx-auto max-w-md px-6 py-20">
       <h1 className="font-display text-3xl text-ink">Register to bid</h1>
       <p className="mt-2 text-sm text-ink/70">
-        Registration is the first step. You&apos;ll complete KYC and pay a
-        refundable cautionary deposit before bidding is enabled.
+        Registration is the first step. You&apos;ll complete KYC before bidding is enabled.
       </p>
 
       <form action={formAction} className="mt-8 space-y-5">
-        <Field label="Full name" name="fullName" type="text" autoComplete="name" />
+        <div className="grid grid-cols-2 gap-4">
+          <Field label="First name" name="firstName" type="text" autoComplete="given-name" />
+          <Field label="Last name" name="lastName" type="text" autoComplete="family-name" />
+        </div>
         <Field label="Email" name="email" type="email" autoComplete="email" />
         <Field label="Password" name="password" type="password" autoComplete="new-password" />
 
