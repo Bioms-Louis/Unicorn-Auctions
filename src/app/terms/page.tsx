@@ -7,6 +7,9 @@ import {
     ShieldCheck,
 } from "lucide-react";
 
+export const metadata = { title: "Terms & conditions - Unicorn Auctions" };
+
+
 const sections = [
     {
         id: "introduction",
@@ -88,11 +91,11 @@ export default function TermsPage() {
                 <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:py-28">
                     <div className="flex flex-col justify-end border-l border-hairline pl-8 md:pl-10">
                         <div>
-                            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
+                            <p className="mb-4 text-sm tracking-[0.2em] text-brass">
                                 Legal
                             </p>
 
-                            <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
+                            <h1 className="max-w-4xl text-4xl font-bold font-display tracking-tight text-ink md:text-6xl">
                                 Terms &amp; Conditions
                             </h1>
 
@@ -121,7 +124,7 @@ export default function TermsPage() {
                     </div>
 
                     <div>
-                        <h2 className="text-lg font-bold text-ink">
+                        <h2 className="text-lg font-bold font-display text-ink">
                             Important notice
                         </h2>
 
@@ -146,7 +149,7 @@ export default function TermsPage() {
                         <div className="flex items-center gap-3">
                             <FileText className="h-4 w-4 text-ink" />
 
-                            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
+                            <p className="text-sm font-semibold font-display uppercase tracking-[0.16em] text-ink/50">
                                 Contents
                             </p>
                         </div>
@@ -178,7 +181,7 @@ export default function TermsPage() {
                         >
                             <SectionNumber number="01" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Introduction
                             </h2>
 
@@ -227,7 +230,7 @@ export default function TermsPage() {
                         >
                             <SectionNumber number="02" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Eligibility and Accounts
                             </h2>
 
@@ -271,7 +274,7 @@ export default function TermsPage() {
                         >
                             <SectionNumber number="03" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Auction Process
                             </h2>
 
@@ -315,7 +318,7 @@ export default function TermsPage() {
                         <section id="bidding" className="scroll-mt-24">
                             <SectionNumber number="04" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Bidding Terms
                             </h2>
 
@@ -375,7 +378,7 @@ export default function TermsPage() {
                         <section id="winning" className="scroll-mt-24">
                             <SectionNumber number="05" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Winning a Lot
                             </h2>
 
@@ -414,7 +417,7 @@ export default function TermsPage() {
                         <section id="settlement" className="scroll-mt-24">
                             <SectionNumber number="06" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Settlement and Payment
                             </h2>
 
@@ -459,7 +462,7 @@ export default function TermsPage() {
                         >
                             <SectionNumber number="07" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Lot Information
                             </h2>
 
@@ -499,7 +502,7 @@ export default function TermsPage() {
                         <section id="platform-use" className="scroll-mt-24">
                             <SectionNumber number="08" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Use of the Platform
                             </h2>
 
@@ -546,7 +549,7 @@ export default function TermsPage() {
                         >
                             <SectionNumber number="09" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Intellectual Property
                             </h2>
 
@@ -580,7 +583,7 @@ export default function TermsPage() {
                         <section id="liability" className="scroll-mt-24">
                             <SectionNumber number="10" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Liability
                             </h2>
 
@@ -622,7 +625,7 @@ export default function TermsPage() {
                         <section id="suspension" className="scroll-mt-24">
                             <SectionNumber number="11" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Suspension and Termination
                             </h2>
 
@@ -656,7 +659,7 @@ export default function TermsPage() {
                         <section id="privacy" className="scroll-mt-24">
                             <SectionNumber number="12" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Privacy
                             </h2>
 
@@ -683,7 +686,7 @@ export default function TermsPage() {
                                 <p>
                                     <Link
                                         href="/privacy"
-                                        className="font-semibold text-ink underline underline-offset-4"
+                                        className="font-semibold font-display text-ink underline underline-offset-4"
                                     >
                                         Read our Privacy Policy
                                     </Link>
@@ -696,7 +699,7 @@ export default function TermsPage() {
                         <section id="changes" className="scroll-mt-24">
                             <SectionNumber number="13" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Changes to These Terms
                             </h2>
 
@@ -728,7 +731,7 @@ export default function TermsPage() {
                         <section id="contact" className="scroll-mt-24">
                             <SectionNumber number="14" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Contact Us
                             </h2>
 
@@ -758,7 +761,7 @@ export default function TermsPage() {
 
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center gap-2 font-semibold text-ink underline underline-offset-4 hover:text-brass"
+                                    className="inline-flex items-center gap-2 font-semibold font-display text-ink underline underline-offset-4 hover:text-brass"
                                 >
                                     Contact our team
                                     <ArrowRight className="h-4 w-4 hover:text-brass" />
@@ -778,7 +781,7 @@ export default function TermsPage() {
                                 <Gavel className="h-5 w-5 text-ink" />
                             </div>
 
-                            <h2 className="mt-6 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-6 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Ready to explore an auction?
                             </h2>
 

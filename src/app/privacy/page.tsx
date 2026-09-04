@@ -11,6 +11,9 @@ import {
     UserRound,
 } from "lucide-react";
 
+export const metadata = { title: "Privacy Policy - Unicorn Auctions" };
+
+
 const sections = [
     {
         id: "introduction",
@@ -92,11 +95,11 @@ export default function PrivacyPolicyPage() {
                 <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:py-28">
                     <div className="flex flex-col justify-end border-l border-hairline pl-8 md:pl-10">
                         <div>
-                            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
+                            <p className="mb-4 text-sm text-brass">
                                 Privacy
                             </p>
 
-                            <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
+                            <h1 className="max-w-4xl text-4xl font-bold font-display tracking-tight text-ink md:text-6xl">
                                 Privacy Policy
                             </h1>
 
@@ -125,7 +128,7 @@ export default function PrivacyPolicyPage() {
                             <Database className="h-5 w-5 text-ink" />
                         </div>
 
-                        <h2 className="mt-6 text-lg font-bold text-ink">
+                        <h2 className="mt-6 text-lg font-bold font-display text-ink">
                             Your Information
                         </h2>
 
@@ -140,7 +143,7 @@ export default function PrivacyPolicyPage() {
                             <LockKeyhole className="h-5 w-5 text-ink" />
                         </div>
 
-                        <h2 className="mt-6 text-lg font-bold text-ink">
+                        <h2 className="mt-6 text-lg font-bold font-display text-ink">
                             Data Security
                         </h2>
 
@@ -155,7 +158,7 @@ export default function PrivacyPolicyPage() {
                             <UserRound className="h-5 w-5 text-ink" />
                         </div>
 
-                        <h2 className="mt-6 text-lg font-bold text-ink">
+                        <h2 className="mt-6 text-lg font-bold font-display text-ink">
                             Your Choices
                         </h2>
 
@@ -175,7 +178,7 @@ export default function PrivacyPolicyPage() {
                         <div className="flex items-center gap-3">
                             <FileText className="h-4 w-4 text-ink" />
 
-                            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
+                            <p className="text-sm font-semibold font-display uppercase tracking-[0.16em] text-ink/50">
                                 Contents
                             </p>
                         </div>
@@ -207,7 +210,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="01" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Introduction
                             </h2>
 
@@ -241,7 +244,7 @@ export default function PrivacyPolicyPage() {
                                     our{" "}
                                     <Link
                                         href="/terms"
-                                        className="font-semibold text-ink underline underline-offset-4 hover:text-brass"
+                                        className="font-semibold font-display text-ink underline underline-offset-4 hover:text-brass"
                                     >
                                         Terms &amp; Conditions
                                     </Link>
@@ -258,7 +261,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="02" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Information We Collect
                             </h2>
 
@@ -324,7 +327,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="03" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 How We Use Your Information
                             </h2>
 
@@ -399,7 +402,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="04" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Auction and Bidding Information
                             </h2>
 
@@ -446,7 +449,7 @@ export default function PrivacyPolicyPage() {
                         <section id="cookies" className="scroll-mt-24">
                             <SectionNumber number="05" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Cookies and Similar Technologies
                             </h2>
 
@@ -464,7 +467,7 @@ export default function PrivacyPolicyPage() {
                                         <Cookie className="mt-1 h-5 w-5 shrink-0 text-ink" />
 
                                         <div>
-                                            <h3 className="font-bold text-ink">
+                                            <h3 className="font-bold font-display text-ink">
                                                 Essential cookies
                                             </h3>
 
@@ -491,7 +494,7 @@ export default function PrivacyPolicyPage() {
                         <section id="sharing" className="scroll-mt-24">
                             <SectionNumber number="06" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 How We Share Information
                             </h2>
 
@@ -545,7 +548,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="07" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Third-Party Services
                             </h2>
 
@@ -585,7 +588,7 @@ export default function PrivacyPolicyPage() {
                         <section id="data-retention" className="scroll-mt-24">
                             <SectionNumber number="08" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Data Retention
                             </h2>
 
@@ -620,7 +623,7 @@ export default function PrivacyPolicyPage() {
                         <section id="data-security" className="scroll-mt-24">
                             <SectionNumber number="09" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Data Security
                             </h2>
 
@@ -660,7 +663,7 @@ export default function PrivacyPolicyPage() {
                         <section id="your-rights" className="scroll-mt-24">
                             <SectionNumber number="10" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Your Privacy Rights
                             </h2>
 
@@ -716,7 +719,7 @@ export default function PrivacyPolicyPage() {
                                     contact us using the details in the
                                     <a
                                         href="#contact"
-                                        className="ml-1 font-semibold text-ink underline underline-offset-4 hover:text-brass"
+                                        className="ml-1 font-semibold font-display text-ink underline underline-offset-4 hover:text-brass"
                                     >
                                         Contact Us
                                     </a>{" "}
@@ -730,7 +733,7 @@ export default function PrivacyPolicyPage() {
                         <section id="children" className="scroll-mt-24">
                             <SectionNumber number="11" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Children&apos;s Privacy
                             </h2>
 
@@ -765,7 +768,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="12" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 International Data Transfers
                             </h2>
 
@@ -801,7 +804,7 @@ export default function PrivacyPolicyPage() {
                         >
                             <SectionNumber number="13" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Changes to This Policy
                             </h2>
 
@@ -838,7 +841,7 @@ export default function PrivacyPolicyPage() {
                         <section id="contact" className="scroll-mt-24">
                             <SectionNumber number="14" />
 
-                            <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-3 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Contact Us
                             </h2>
 
@@ -856,7 +859,7 @@ export default function PrivacyPolicyPage() {
                                         <Mail className="mt-1 h-5 w-5 shrink-0 text-ink" />
 
                                         <div>
-                                            <p className="font-bold text-ink">
+                                            <p className="font-bold font-display text-ink">
                                                 Unicorn Auctions
                                             </p>
 
@@ -876,7 +879,7 @@ export default function PrivacyPolicyPage() {
 
                                 <Link
                                     href="/contact"
-                                    className="inline-flex items-center gap-2 font-semibold text-ink underline underline-offset-4 hover:text-brass"
+                                    className="inline-flex items-center gap-2 font-semibold font-display text-ink underline underline-offset-4 hover:text-brass"
                                 >
                                     Contact our team
                                     <ArrowRight className="h-4 w-4 hover:text-brass" />
@@ -896,7 +899,7 @@ export default function PrivacyPolicyPage() {
                                 <ShieldCheck className="h-5 w-5 text-ink" />
                             </div>
 
-                            <h2 className="mt-6 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                            <h2 className="mt-6 text-2xl font-bold font-display tracking-tight text-ink md:text-3xl">
                                 Questions about your privacy?
                             </h2>
 

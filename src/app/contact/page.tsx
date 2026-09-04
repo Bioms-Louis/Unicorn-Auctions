@@ -110,12 +110,12 @@ export default function ContactPage() {
                     <div className="flex flex-col justify-end border-l border-hairline pl-8 md:pl-10">
                         <dl className="space-y-6">
                             <div>
-                                <dt className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
+                                <dt className="mb-4 text-sm tracking-[0.2em] text-brass">
                                     Get In Touch
                                 </dt>
 
                                 <dd>
-                                    <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
+                                    <h1 className="font-display max-w-3xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
                                         Contact Us
                                     </h1>
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                             Email
                         </p>
 
-                        <h3 className="mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
                             <a href="mailto:info@unicornauctions.org">
                                 info@unicornauctions.org
                             </a>
@@ -160,7 +160,7 @@ export default function ContactPage() {
                             Call
                         </p>
 
-                        <h3 className="mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
                             <a href="tel:+2348033124399">08033124399</a>, <a href="tel:+2348026222555">08026222555</a>
                         </h3>
                     </div>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                             Location
                         </p>
 
-                        <h3 className="mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
                             Plot 1699 Sanusi Fafunwa Street, Victoria Island, Lagos, Nigeria.
                         </h3>
                     </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                             Let&apos;s Talk
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                        <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
                             How can we help?
                         </h2>
 
@@ -281,7 +281,7 @@ export default function ContactPage() {
                                     Message Sent
                                 </p>
 
-                                <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink">
+                                <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-ink">
                                     Thank you for reaching out.
                                 </h2>
 
@@ -316,7 +316,7 @@ export default function ContactPage() {
                                         Send A Message
                                     </p>
 
-                                    <h2 className="mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
+                                    <h2 className="font-display mt-3 text-2xl font-bold tracking-tight text-ink md:text-3xl">
                                         Tell us what you need.
                                     </h2>
 
@@ -548,7 +548,7 @@ export default function ContactPage() {
                                 Quick Help
                             </p>
 
-                            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                            <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
                                 Before you contact us
                             </h2>
 
@@ -593,7 +593,7 @@ export default function ContactPage() {
                                     Ready To Bid?
                                 </p>
 
-                                <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                                <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
                                     Explore our latest auctions.
                                 </h2>
 

@@ -10,6 +10,9 @@ import {
     UserPlus,
 } from "lucide-react";
 
+export const metadata = { title: "How It Works - Unicorn Auctions" };
+
+
 const steps = [
     {
         number: "01",
@@ -97,12 +100,12 @@ export default function HowItWorksPage() {
                     <div className="flex flex-col justify-end border-l border-hairline pl-8 md:pl-10">
                         <dl className="space-y-6">
                             <div>
-                                <dt className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
+                                <dt className="mb-4 text-sm text-brass">
                                     The Auction Process
                                 </dt>
 
                                 <dd>
-                                    <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
+                                    <h1 className="max-w-3xl text-4xl font-bold font-display tracking-tight text-ink md:text-6xl">
                                         How It Works
                                     </h1>
 
@@ -125,7 +128,7 @@ export default function HowItWorksPage() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
                             01
                         </p>
-                        <h2 className="mt-3 text-xl font-bold text-ink">
+                        <h2 className="mt-3 text-xl font-bold font-display text-ink">
                             Discover
                         </h2>
                         <p className="mt-2 leading-7 text-ink/70">
@@ -138,7 +141,7 @@ export default function HowItWorksPage() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
                             02
                         </p>
-                        <h2 className="mt-3 text-xl font-bold text-ink">
+                        <h2 className="mt-3 text-xl font-bold font-display text-ink">
                             Participate
                         </h2>
                         <p className="mt-2 leading-7 text-ink/70">
@@ -151,7 +154,7 @@ export default function HowItWorksPage() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
                             03
                         </p>
-                        <h2 className="mt-3 text-xl font-bold text-ink">
+                        <h2 className="mt-3 text-xl font-bold font-display text-ink">
                             Win
                         </h2>
                         <p className="mt-2 leading-7 text-ink/70">
@@ -166,11 +169,11 @@ export default function HowItWorksPage() {
             <section>
                 <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                        <p className="text-sm text-brass">
                             Step by Step
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                             Your journey from registration to winning
                         </h2>
 
@@ -199,7 +202,7 @@ export default function HowItWorksPage() {
                                     </div>
 
                                     <div>
-                                        <h3 className="text-2xl font-bold text-ink">
+                                        <h3 className="text-2xl font-bold font-display text-ink">
                                             {step.title}
                                         </h3>
 
@@ -218,11 +221,11 @@ export default function HowItWorksPage() {
             <section className="border-y border-hairline">
                 <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-28">
                     <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                        <p className="text-sm text-brass">
                             Live Bidding
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                             Built for real-time auctions
                         </h2>
 
@@ -330,11 +333,11 @@ export default function HowItWorksPage() {
                 <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                     <div className="grid gap-12 md:grid-cols-[0.8fr_1.2fr]">
                         <div>
-                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                            <p className="text-sm text-brass">
                                 Before You Bid
                             </p>
 
-                            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                            <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                                 Know the rules
                             </h2>
 
@@ -347,7 +350,7 @@ export default function HowItWorksPage() {
 
                         <div className="divide-y divide-hairline border-y border-hairline">
                             <div className="py-6">
-                                <h3 className="font-bold text-ink">
+                                <h3 className="font-bold font-display text-ink">
                                     Bids are binding
                                 </h3>
                                 <p className="mt-2 leading-7 text-ink/70">
@@ -358,7 +361,7 @@ export default function HowItWorksPage() {
                             </div>
 
                             <div className="py-6">
-                                <h3 className="font-bold text-ink">
+                                <h3 className="font-bold font-display text-ink">
                                     Bid increments apply
                                 </h3>
                                 <p className="mt-2 leading-7 text-ink/70">
@@ -369,7 +372,7 @@ export default function HowItWorksPage() {
                             </div>
 
                             <div className="py-6">
-                                <h3 className="font-bold text-ink">
+                                <h3 className="font-bold font-display text-ink">
                                     Reserve prices may apply
                                 </h3>
                                 <p className="mt-2 leading-7 text-ink/70">
@@ -380,7 +383,7 @@ export default function HowItWorksPage() {
                             </div>
 
                             <div className="py-6">
-                                <h3 className="font-bold text-ink">
+                                <h3 className="font-bold font-display text-ink">
                                     Auction extensions may occur
                                 </h3>
                                 <p className="mt-2 leading-7 text-ink/70">
@@ -398,11 +401,11 @@ export default function HowItWorksPage() {
             <section className="border-y border-hairline">
                 <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
                     <div className="max-w-2xl">
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                        <p className="text-sm text-brass">
                             After the Auction
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                             What happens when you win?
                         </h2>
 
@@ -418,7 +421,7 @@ export default function HowItWorksPage() {
                             <span className="text-sm font-semibold text-ink/40">
                                 01
                             </span>
-                            <h3 className="mt-5 text-xl font-bold text-ink">
+                            <h3 className="mt-5 text-xl font-bold font-display text-ink">
                                 Winner confirmed
                             </h3>
                             <p className="mt-3 leading-7 text-ink/70">
@@ -432,7 +435,7 @@ export default function HowItWorksPage() {
                             <span className="text-sm font-semibold text-ink/40">
                                 02
                             </span>
-                            <h3 className="mt-5 text-xl font-bold text-ink">
+                            <h3 className="mt-5 text-xl font-bold font-display text-ink">
                                 Settlement
                             </h3>
                             <p className="mt-3 leading-7 text-ink/70">
@@ -446,7 +449,7 @@ export default function HowItWorksPage() {
                             <span className="text-sm font-semibold text-ink/40">
                                 03
                             </span>
-                            <h3 className="mt-5 text-xl font-bold text-ink">
+                            <h3 className="mt-5 text-xl font-bold font-display text-ink">
                                 Complete your purchase
                             </h3>
                             <p className="mt-3 leading-7 text-ink/70">
@@ -468,11 +471,11 @@ export default function HowItWorksPage() {
                                 <HelpCircle className="h-5 w-5 text-ink" />
                             </div>
 
-                            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                            <p className="mt-6 text-sm text-brass">
                                 FAQ
                             </p>
 
-                            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                            <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                                 Frequently asked questions
                             </h2>
 
@@ -514,11 +517,11 @@ export default function HowItWorksPage() {
                             <Mail className="h-5 w-5 text-ink" />
                         </div>
 
-                        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                        <p className="mt-6 text-sm text-brass">
                             Need Help?
                         </p>
 
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink md:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold font-display tracking-tight text-ink md:text-4xl">
                             We&apos;re here to help.
                         </h2>
 
@@ -538,7 +541,7 @@ export default function HowItWorksPage() {
                     </div>
 
                     <div className="border border-hairline shadow-lg p-6 md:p-8">
-                        <h3 className="text-xl font-bold text-ink">
+                        <h3 className="text-xl font-bold font-display text-ink">
                             Ready to start?
                         </h3>
 

@@ -96,7 +96,7 @@ export function SiteFooter() {
                     <div>
                         <Link
                             href="/"
-                            className="inline-block text-2xl font-bold tracking-tight"
+                            className="inline-block font-display text-2xl font-bold tracking-tight"
                         >
                             Unicorn Auctions
                         </Link>

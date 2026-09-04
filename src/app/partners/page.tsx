@@ -1,6 +1,6 @@
 import { Web3Form } from "@/components/web3form";
 
-export const metadata = { title: "For partners — Unicorn Auctions" };
+export const metadata = { title: "For partners - Unicorn Auctions" };
 
 const PARTNER_TYPES = [
   "Financial institutions",
