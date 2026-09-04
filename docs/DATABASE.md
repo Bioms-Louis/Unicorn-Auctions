@@ -14,6 +14,13 @@ minor units) — never `numeric`/`float` for currency.
 - `0004_place_bid_function.sql` — `place_bid()` and `close_lot()`, the
   atomic, row-locked functions that are the only sanctioned way bids get
   accepted or lots get closed.
+- `0005_storage_buckets.sql` — RLS policies on `storage.objects` for the
+  KYC/receipt/lot-media/lot-document buckets. **Does not create the
+  buckets themselves** — `storage.buckets` is owned by Supabase's internal
+  storage role, so a direct `INSERT` from the SQL Editor fails with `must
+  be owner of table buckets`. Create the buckets first with
+  `npm run setup:storage` (or by hand in Dashboard → Storage), then run
+  this migration.
 
 ## Invariants enforced at the database layer (not just app code)
 

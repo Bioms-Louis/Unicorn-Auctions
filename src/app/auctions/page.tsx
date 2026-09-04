@@ -18,7 +18,7 @@ export default async function AuctionsPage() {
     <div className="mx-auto max-w-6xl px-6 py-16">
       <h1 className="font-display text-3xl text-ink">Auctions</h1>
       <p className="mt-2 max-w-xl text-ink/70">
-        Every auction listed here runs as a hybrid sale — floor and online
+        Every auction listed here runs as a hybrid sale floor and online
         bidders in the same synchronized bidding process.
       </p>
 

@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Unicorn Auctions — Hybrid live auctions, Nigeria",
+  title: "Unicorn Auctions",
   description:
     "Unicorn Auctions runs hybrid live auctions where floor and online bidders compete in one synchronized bidding process.",
 };
