@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
     ArrowRight,
     Check,
-    Clock3,
     HelpCircle,
     Mail,
     MapPin,
@@ -158,7 +157,7 @@ export default function ContactPage() {
                         </div>
 
                         <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
-                            Call Us
+                            Call
                         </p>
 
                         <h3 className="mt-2 leading-7 font-bold text-lg text-brass">

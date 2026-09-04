@@ -10,8 +10,6 @@ const NAV = [
   { href: "/auctions", label: "Auctions" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/contact", label: "Contact Us" },
-  // { href: "/partners", label: "For partners" },
-  // { href: "/brokers", label: "For brokers" },
 ];
 
 export function SiteHeader() {
