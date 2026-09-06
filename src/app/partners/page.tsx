@@ -97,19 +97,19 @@ export default function PartnersPage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 border-t border-hairline pt-14 md:grid-cols-3">
           <div>
-            <p className="text-sm text-muted">Seller commission</p>
+            <p className="text-sm text-brass">Seller commission</p>
             <p className="mt-1 font-display text-2xl text-ink">5%–15%</p>
             <p className="mt-1 text-sm text-ink/70">Set per auction, lot, or category.</p>
           </div>
           <div>
-            <p className="text-sm text-muted">VAT</p>
+            <p className="text-sm text-brass">VAT</p>
             <p className="mt-1 font-display text-2xl text-ink">7.5%</p>
             <p className="mt-1 text-sm text-ink/70">
               Applies to seller commission. Real estate is VAT-exempt.
             </p>
           </div>
           <div>
-            <p className="text-sm text-muted">Settlement</p>
+            <p className="text-sm text-brass">Settlement</p>
             <p className="mt-1 font-display text-2xl text-ink">Itemized</p>
             <p className="mt-1 text-sm text-ink/70">
               Full line-item statement for every sold lot, downloadable from

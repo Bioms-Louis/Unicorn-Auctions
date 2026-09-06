@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import type { HeaderUser } from "@/lib/auth/current-user";
 import Image from "next/image";
 
 const NAV = [
@@ -12,7 +13,11 @@ const NAV = [
   { href: "/contact", label: "Contact Us" },
 ];
 
-export function SiteHeader() {
+function initials(user: HeaderUser) {
+  return `${user.firstName[0] ?? ""}${user.lastName[0] ?? ""}`.toUpperCase();
+}
+
+export function SiteHeader({ user }: { user: HeaderUser | null }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,15 +47,21 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-4 text-sm md:flex">
-          <Link href="/sign-in" className="text-ink/80 hover:border-brass hover:text-brass">
-            Sign in
-          </Link>
-          <Link
-            href="/register"
-            className="border border-ink px-4 py-2 text-ink transition hover:border-brass hover:text-brass"
-          >
-            Register to bid
-          </Link>
+          {user ? (
+            <ProfileLink user={user} />
+          ) : (
+            <>
+              <Link href="/sign-in" className="text-ink/80 hover:text-brass">
+                Sign in
+              </Link>
+              <Link
+                href="/register"
+                className="border border-ink px-4 py-2 text-ink transition hover:border-brass hover:text-brass"
+              >
+                Register to bid
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -70,7 +81,7 @@ export function SiteHeader() {
           id="mobile-nav"
           className="border-t border-hairline px-6 py-4 text-sm md:hidden"
         >
-          <ul className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-4">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
@@ -85,23 +96,59 @@ export function SiteHeader() {
           </ul>
 
           <div className="mt-6 flex flex-col gap-3 border-t border-hairline pt-4">
-            <Link
-              href="/sign-in"
-              onClick={() => setOpen(false)}
-              className="px-4 py-2 text-center text-ink transition hover:border-brass hover:text-brass"
-            >
-              Sign in
-            </Link>
-            <Link
-              href="/register"
-              onClick={() => setOpen(false)}
-              className="border border-ink px-4 py-2 text-center text-ink transition hover:border-brass hover:text-brass"
-            >
-              Register to bid
-            </Link>
+            {user ? (
+              <Link
+                href="/dashboard"
+                onClick={() => setOpen(false)}
+                className="group flex items-center gap-3 text-ink hover:text-brass"
+              >
+                <Avatar user={user} />
+                <span>
+                  {user.firstName}
+                </span>
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/sign-in"
+                  onClick={() => setOpen(false)}
+                  className="px-4 py-2 text-center text-ink transition hover:border-brass hover:text-brass"
+                >
+                  Sign in
+                </Link>
+                <Link
+                  href="/register"
+                  onClick={() => setOpen(false)}
+                  className="border border-ink px-4 py-2 text-center text-ink transition hover:border-brass hover:text-brass"
+                >
+                  Register to bid
+                </Link>
+              </>
+            )}
           </div>
         </nav>
       )}
     </header>
+  );
+}
+
+function Avatar({ user }: { user: HeaderUser }) {
+  return (
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-ink text-xs text-ink transition-colors group-hover:border-brass group-hover:text-brass">
+      {initials(user)}
+    </span>
+  );
+}
+
+function ProfileLink({ user }: { user: HeaderUser }) {
+  return (
+    <Link
+      href="/dashboard"
+      aria-label={`Go to your dashboard, ${user.firstName} ${user.lastName}`}
+      className="group flex items-center gap-3 text-ink hover:text-brass"
+    >
+      <Avatar user={user} />
+      <span>{user.firstName}</span>
+    </Link>
   );
 }

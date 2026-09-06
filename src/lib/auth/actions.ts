@@ -7,7 +7,8 @@ import { writeAuditEvent } from "@/lib/audit";
 import { redirect } from "next/navigation";
 
 const SignUpInput = z.object({
-  fullName: z.string().min(2, "Enter your full name."),
+  firstName: z.string().min(1, "Enter your first name."),
+  lastName: z.string().min(1, "Enter your last name."),
   email: z.string().email("Enter a valid email address."),
   password: z.string().min(8, "Password must be at least 8 characters."),
 });
@@ -28,7 +29,8 @@ export async function signUpBidder(
   formData: FormData,
 ): Promise<AuthActionResult> {
   const parsed = SignUpInput.safeParse({
-    fullName: formData.get("fullName"),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
     email: formData.get("email"),
     password: formData.get("password"),
   });
@@ -41,7 +43,7 @@ export async function signUpBidder(
   const { data, error } = await supabase.auth.signUp({
     email: parsed.data.email,
     password: parsed.data.password,
-    options: { data: { full_name: parsed.data.fullName } },
+    options: { data: { first_name: parsed.data.firstName, last_name: parsed.data.lastName } },
   });
 
   if (error || !data.user) {
@@ -56,7 +58,8 @@ export async function signUpBidder(
 
   const { error: profileError } = await service.from("profiles").insert({
     id: data.user.id,
-    full_name: parsed.data.fullName,
+    first_name: parsed.data.firstName,
+    last_name: parsed.data.lastName,
   });
   if (profileError) {
     return { success: false, error: `Account created but profile setup failed: ${profileError.message}` };

@@ -96,19 +96,19 @@ export default function BrokersPage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 border-t border-hairline pt-14 md:grid-cols-3">
           <div>
-            <p className="text-sm text-muted">Commission split</p>
+            <p className="text-sm text-brass">Commission split</p>
             <p className="mt-1 font-display text-2xl text-ink">10%–25%</p>
             <p className="mt-1 text-sm text-ink/70">Of Unicorn Auctions&apos; commission on the sale.</p>
           </div>
           <div>
-            <p className="text-sm text-muted">Withholding tax</p>
+            <p className="text-sm text-brass">Withholding tax</p>
             <p className="mt-1 font-display text-2xl text-ink">5%</p>
             <p className="mt-1 text-sm text-ink/70">
               Deducted from gross commission per statutory rate. TIN required.
             </p>
           </div>
           <div>
-            <p className="text-sm text-muted">Tracking</p>
+            <p className="text-sm text-brass">Tracking</p>
             <p className="mt-1 font-display text-2xl text-ink">Automatic</p>
             <p className="mt-1 text-sm text-ink/70">
               Referred bidders, activity, and payouts, all against your

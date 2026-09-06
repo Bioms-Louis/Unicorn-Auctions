@@ -140,11 +140,11 @@ export default function ContactPageClient() {
                             <Mail className="h-5 w-5 text-ink" />
                         </div>
 
-                        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
+                        <p className="mt-6 text-sm text-brass">
                             Email
                         </p>
 
-                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-ink">
                             <a href="mailto:info@unicornauctions.org">
                                 info@unicornauctions.org
                             </a>
@@ -156,11 +156,11 @@ export default function ContactPageClient() {
                             <Phone className="h-5 w-5 text-ink" />
                         </div>
 
-                        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
+                        <p className="mt-6 text-sm text-brass">
                             Call
                         </p>
 
-                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-ink">
                             <a href="tel:+2348033124399">08033124399</a>, <a href="tel:+2348026222555">08026222555</a>
                         </h3>
                     </div>
@@ -170,11 +170,11 @@ export default function ContactPageClient() {
                             <MapPin className="h-5 w-5 text-ink" />
                         </div>
 
-                        <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-ink/50">
+                        <p className="mt-6 text-sm text-brass">
                             Location
                         </p>
 
-                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-brass">
+                        <h3 className="font-display mt-2 leading-7 font-bold text-lg text-ink">
                             Plot 1699 Sanusi Fafunwa Street, Victoria Island, Lagos, Nigeria.
                         </h3>
                     </div>
@@ -186,7 +186,7 @@ export default function ContactPageClient() {
                 <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[0.7fr_1.3fr] md:gap-20 md:py-28">
                     {/* Left information */}
                     <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                        <p className="text-sm text-brass">
                             Let&apos;s Talk
                         </p>
 
@@ -312,7 +312,7 @@ export default function ContactPageClient() {
                         ) : (
                             <>
                                 <div>
-                                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                                    <p className="text-sm text-brass">
                                         Send A Message
                                     </p>
 
@@ -544,7 +544,7 @@ export default function ContactPageClient() {
                                 <HelpCircle className="h-5 w-5 text-ink" />
                             </div>
 
-                            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                            <p className="mt-6 text-sm text-brass">
                                 Quick Help
                             </p>
 
@@ -589,7 +589,7 @@ export default function ContactPageClient() {
                     <div className="border border-hairline p-8 md:p-12">
                         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
                             <div>
-                                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/50">
+                                <p className="text-sm text-brass">
                                     Ready To Bid?
                                 </p>
 

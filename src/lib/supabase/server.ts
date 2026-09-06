@@ -1,9 +1,3 @@
-/**
- * Server Supabase client for use inside Server Components, Server Actions,
- * and Route Handlers. Uses the ANON key + the user's session cookies, so
- * RLS still applies — this is the client you use for anything done "as
- * the logged-in user".
- */
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import type { Database } from "@/types/database";

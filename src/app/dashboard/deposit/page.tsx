@@ -22,7 +22,7 @@ export default async function DepositPage({
     .gt("default_deposit_kobo", 0);
 
   return (
-    <div className="mx-auto max-w-xl px-6 py-16">
+    <div className="max-w-xl">
       <h1 className="font-display text-3xl text-ink">Cautionary deposit</h1>
       <p className="mt-2 text-sm text-ink/70">
         The deposit is refundable and unlocks bidding for the auction it&apos;s

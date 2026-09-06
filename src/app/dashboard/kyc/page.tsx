@@ -9,7 +9,7 @@ export default function KycPage() {
   const [state, formAction, pending] = useActionState(submitKycAction, initialState);
 
   return (
-    <div className="mx-auto max-w-xl px-6 py-16">
+    <div className="max-w-xl">
       <h1 className="font-display text-3xl text-ink">Complete your KYC</h1>
       <p className="mt-2 text-sm text-ink/70">
         This is reviewed by our KYC team before you can pay a deposit and

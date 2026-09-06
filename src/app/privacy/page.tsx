@@ -1,15 +1,14 @@
 import Link from "next/link";
 import {
     ArrowRight,
-    ChevronRight,
     Cookie,
     Database,
-    FileText,
     LockKeyhole,
     Mail,
     ShieldCheck,
     UserRound,
 } from "lucide-react";
+import { TocNav } from "@/components/toc-nav";
 
 export const metadata = { title: "Privacy Policy - Unicorn Auctions" };
 
@@ -113,7 +112,6 @@ export default function PrivacyPolicyPage() {
                                 <span>
                                     Last updated: September 4, 2026
                                 </span>
-                                <span>Version 1.0</span>
                             </div>
                         </div>
                     </div>
@@ -175,31 +173,7 @@ export default function PrivacyPolicyPage() {
                 <div className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-[260px_1fr] md:gap-20 md:py-28">
                     {/* Table of contents */}
                     <aside className="md:sticky md:top-24 md:self-start">
-                        <div className="flex items-center gap-3">
-                            <FileText className="h-4 w-4 text-ink" />
-
-                            <p className="text-sm font-semibold font-display uppercase tracking-[0.16em] text-ink/50">
-                                Contents
-                            </p>
-                        </div>
-
-                        <nav className="mt-5 border-l border-hairline">
-                            {sections.map((section) => (
-                                <a
-                                    key={section.id}
-                                    href={`#${section.id}`}
-                                    className="group flex items-center gap-3 border-l-2 border-transparent py-2 pl-4 text-sm text-ink/55 transition-colors hover:border-ink hover:text-ink"
-                                >
-                                    <span className="text-xs text-ink/30">
-                                        {section.number}
-                                    </span>
-
-                                    <span>{section.title}</span>
-
-                                    <ChevronRight className="ml-auto h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
-                                </a>
-                            ))}
-                        </nav>
+                        <TocNav sections={sections} />
                     </aside>
 
                     {/* Policy */}

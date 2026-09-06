@@ -1,34 +1,27 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
-import { signOut } from "@/lib/auth/actions";
+import { getCurrentBidder } from "@/lib/bidders/current-bidder";
+import { getBidderDashboardData, getBidderOverviewStats } from "@/lib/bidders/dashboard-queries";
+import { formatNaira, kobo } from "@/lib/money";
 
-const STATE_LABEL: Record<string, string> = {
-  pending: "Registration received",
-  kyc_pending: "KYC under review",
-  kyc_approved: "KYC approved — deposit required",
-  deposit_pending: "Deposit required",
-  deposit_verified: "Deposit verified",
-  bidding_enabled: "Eligible to bid",
-  suspended: "Suspended",
-  rejected: "Application rejected",
-};
+const STEPS: { state: string; label: string }[] = [
+  { state: "pending", label: "Registered" },
+  { state: "kyc_pending", label: "KYC submitted" },
+  { state: "kyc_approved", label: "KYC approved" },
+  { state: "deposit_verified", label: "Deposit verified" },
+  { state: "bidding_enabled", label: "Bidding enabled" },
+];
 
-export default async function DashboardPage() {
+function stepIndex(state: string): number {
+  if (state === "deposit_pending") return STEPS.findIndex((s) => s.state === "deposit_verified");
+  const idx = STEPS.findIndex((s) => s.state === state);
+  return idx === -1 ? 0 : idx;
+}
+
+export default async function DashboardOverviewPage() {
+  const { user, bidder } = await getCurrentBidder();
   const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) redirect("/sign-in");
-
-  const { data: bidder } = await supabase
-    .from("bidders")
-    .select("id, state")
-    .eq("user_id", user.id)
-    .single();
-
-  if (!bidder) redirect("/register");
 
   const { data: kyc } = await supabase
     .from("kyc_submissions")
@@ -39,76 +32,148 @@ export default async function DashboardPage() {
     .limit(1)
     .maybeSingle();
 
-  const { data: deposits } = await supabase
-    .from("bidder_deposits")
-    .select("id, status, amount_kobo, auction_id")
-    .eq("bidder_id", bidder.id);
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("first_name")
+    .eq("id", user.id)
+    .single();
+
+  const { recentBids, wonLots, watchlist, unreadNotificationCount } = await getBidderDashboardData(
+    bidder.id,
+    user.id,
+  );
+  const stats = await getBidderOverviewStats(bidder.id, user.id);
+
+  const { data: notifications } = await supabase
+    .from("notifications")
+    .select("id, type, read_at, created_at")
+    .order("created_at", { ascending: false })
+    .limit(5);
+
+  const isBlocked = bidder.state === "suspended" || bidder.state === "rejected";
+  const currentStep = stepIndex(bidder.state);
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <div className="flex items-baseline justify-between">
-        <h1 className="font-display text-3xl text-ink">Your dashboard</h1>
-        <form action={signOut}>
-          <button type="submit" className="text-sm text-muted hover:text-ink">
-            Sign out
-          </button>
-        </form>
-      </div>
+    <div>
+      <h1 className="font-display text-3xl text-ink">
+        Welcome back{profile?.first_name ? `, ${profile.first_name}` : ""}
+      </h1>
 
-      <div className="mt-8 border border-hairline p-6">
-        <p className="text-sm text-muted">Eligibility status</p>
-        <p className="mt-1 font-display text-2xl text-ink">
-          {STATE_LABEL[bidder.state] ?? bidder.state}
+      {isBlocked && (
+        <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {bidder.state === "suspended"
+            ? "Your account is currently suspended. Contact our team if you believe this is a mistake."
+            : "Your application was not approved. Contact our team for more information."}
         </p>
+      )}
 
-        {bidder.state === "pending" && (
-          <Link
-            href="/dashboard/kyc"
-            className="mt-4 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
-          >
-            Complete KYC
+      {kyc?.status === "rejected" && (
+        <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          Your KYC submission was not approved.{" "}
+          <Link href="/dashboard/kyc" className="underline">
+            Review and resubmit
           </Link>
-        )}
-        {kyc?.status === "rejected" && (
-          <p className="mt-4 text-sm text-red-700">
-            Your KYC submission was not approved.{" "}
-            <Link href="/dashboard/kyc" className="underline">
-              Review and resubmit
-            </Link>
-            .
-          </p>
-        )}
-        {bidder.state === "kyc_approved" && (
-          <Link
-            href="/dashboard/deposit"
-            className="mt-4 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
-          >
-            Pay cautionary deposit
-          </Link>
-        )}
+          .
+        </p>
+      )}
+
+      {/* Stat cards */}
+      <div className="mt-8 grid grid-cols-2 gap-px border border-hairline bg-hairline md:grid-cols-4">
+        <StatCard label="Bids placed" value={stats.totalBidCount} href="/dashboard/bids" />
+        <StatCard label="Lots won" value={wonLots.length} />
+        <StatCard label="Watchlist" value={watchlist.length} href="/dashboard/watchlist" />
+        <StatCard
+          label="Unread alerts"
+          value={unreadNotificationCount}
+          highlight={unreadNotificationCount > 0}
+        />
       </div>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-2">
+      {/* Eligibility stepper */}
+      {!isBlocked && (
+        <div className="mt-10 border border-hairline p-6">
+          <p className="text-sm text-muted">Eligibility progress</p>
+          <ol className="mt-4 flex flex-wrap gap-x-6 gap-y-4">
+            {STEPS.map((step, index) => {
+              const done = index < currentStep || bidder.state === "bidding_enabled" && index <= currentStep;
+              const isCurrent = index === currentStep && bidder.state !== "bidding_enabled";
+              return (
+                <li key={step.state} className="flex items-center gap-2 text-sm">
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center border text-xs ${
+                      done
+                        ? "border-brass bg-brass text-white"
+                        : isCurrent
+                          ? "border-ink text-ink"
+                          : "border-hairline text-muted"
+                    }`}
+                  >
+                    {done ? <Check size={13} /> : index + 1}
+                  </span>
+                  <span className={done || isCurrent ? "text-ink" : "text-muted"}>{step.label}</span>
+                </li>
+              );
+            })}
+          </ol>
+
+          {bidder.state === "pending" && (
+            <Link
+              href="/dashboard/kyc"
+              className="mt-5 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
+            >
+              Complete KYC
+            </Link>
+          )}
+          {bidder.state === "kyc_approved" && (
+            <Link
+              href="/dashboard/deposit"
+              className="mt-5 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
+            >
+              Pay cautionary deposit
+            </Link>
+          )}
+        </div>
+      )}
+
+      {/* Recent activity */}
+      <div className="mt-10 grid gap-10 md:grid-cols-2">
         <section>
-          <h2 className="font-display text-xl text-ink">KYC</h2>
-          <p className="mt-2 text-sm text-ink/70">
-            Status: {kyc?.status ?? "Not yet submitted"}
-          </p>
+          <div className="flex items-baseline justify-between">
+            <h2 className="font-display text-xl text-ink">Recent bids</h2>
+            <Link href="/dashboard/bids" className="text-sm text-muted hover:text-brass">
+              View all
+            </Link>
+          </div>
+          <div className="mt-4 border-t border-hairline">
+            {recentBids.length === 0 ? (
+              <p className="border-b border-hairline py-6 text-sm text-muted">No bids placed yet.</p>
+            ) : (
+              recentBids.slice(0, 5).map((bid) => (
+                <div key={bid.id} className="flex items-center justify-between border-b border-hairline py-3">
+                  <p className="truncate text-sm text-ink">{bid.lot?.title ?? "Lot unavailable"}</p>
+                  <p className="shrink-0 text-sm text-muted">
+                    {formatNaira(kobo(bid.amount_kobo), { withDecimals: false })}
+                  </p>
+                </div>
+              ))
+            )}
+          </div>
         </section>
 
         <section>
-          <h2 className="font-display text-xl text-ink">Deposits</h2>
-          {!deposits || deposits.length === 0 ? (
-            <p className="mt-2 text-sm text-ink/70">No deposits on record.</p>
-          ) : (
-            <ul className="mt-2 space-y-2 text-sm text-ink/70">
-              {deposits.map((d) => (
-                <li key={d.id}>
-                  {(d.amount_kobo / 100).toLocaleString("en-NG")} NGN — {d.status}
-                </li>
-              ))}
-            </ul>
-          )}
+          <h2 className="font-display text-xl text-ink">Notifications</h2>
+          <div className="mt-4 border-t border-hairline">
+            {!notifications || notifications.length === 0 ? (
+              <p className="border-b border-hairline py-6 text-sm text-muted">Nothing new.</p>
+            ) : (
+              notifications.map((n) => (
+                <div key={n.id} className="flex items-center justify-between gap-3 border-b border-hairline py-3">
+                  <p className="text-sm capitalize text-ink">{n.type.replaceAll("_", " ")}</p>
+                  {!n.read_at && <span className="h-2 w-2 shrink-0 rounded-full bg-brass" />}
+                </div>
+              ))
+            )}
+          </div>
         </section>
       </div>
 
@@ -119,4 +184,25 @@ export default async function DashboardPage() {
       </div>
     </div>
   );
+}
+
+function StatCard({
+  label,
+  value,
+  highlight = false,
+  href,
+}: {
+  label: string;
+  value: number;
+  highlight?: boolean;
+  href?: string;
+}) {
+  const content = (
+    <div className={`bg-paper p-6 ${href ? "transition-colors hover:bg-ink/[0.03]" : ""}`}>
+      <p className="text-sm text-muted">{label}</p>
+      <p className={`mt-1 font-display text-3xl ${highlight ? "text-brass" : "text-ink"}`}>{value}</p>
+    </div>
+  );
+
+  return href ? <Link href={href}>{content}</Link> : content;
 }
