@@ -16,6 +16,7 @@ import {
     FaLinkedinIn,
     FaXTwitter,
 } from "react-icons/fa6";
+import Image from "next/image";
 
 const menu = [
     { label: "Auctions", href: "/auctions" },
@@ -98,7 +99,14 @@ export function SiteFooter() {
                             href="/"
                             className="inline-block font-display text-2xl font-bold tracking-tight"
                         >
-                            Unicorn Auctions
+                            <Image
+                                src="/images/auctions-logo-2.jfif"
+                                alt="Unicorn Auctions"
+                                width={160}
+                                height={50}
+                                className="h-auto w-40 object-contain"
+                                priority
+                            />
                         </Link>
 
                         <p className="mt-5 max-w-sm text-sm leading-7 text-white/60">

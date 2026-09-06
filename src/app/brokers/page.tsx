@@ -41,19 +41,31 @@ const PROCESS = [
 export default function BrokersPage() {
   return (
     <div>
-      <section className="border-b border-hairline">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <p className="text-sm text-brass">For brokers</p>
-          <h1 className="mt-4 max-w-2xl font-display text-4xl leading-[1.1] text-ink md:text-5xl">
-            Refer buyers. Track every bid and commission against your own code.
-          </h1>
-          <p className="mt-6 max-w-xl text-ink/70">
-            Unicorn Auctions works with agents, dealmakers, auto dealers,
-            property brokers, and introducing partners to bring bidders into
-            hybrid live auctions floor and online, one synchronized price.
-          </p>
-        </div>
-      </section>
+<section>
+                <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:py-28">
+                    <div className="flex flex-col justify-end border-l border-hairline pl-8 md:pl-10">
+                        <dl className="space-y-6">
+                            <div>
+                                <dt className="mb-4 text-sm tracking-[0.2em] text-brass">
+                                    For brokers
+                                </dt>
+
+                                <dd>
+                                    <h1 className="font-display max-w-3xl text-4xl font-bold tracking-tight text-ink md:text-6xl">
+                                        Refer buyers. Track every bid and commission against your own code.
+                                    </h1>
+
+                                    <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/70 md:text-xl">
+                                          Unicorn Auctions works with agents, dealmakers, auto dealers,
+                                          property brokers, and introducing partners to bring bidders into
+                                          hybrid live auctions floor and online, one synchronized price.
+                                    </p>
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <h2 className="font-display text-2xl text-ink">Who we work with</h2>

@@ -17,7 +17,7 @@ export default async function HomePage() {
             </h1>
             <p className="mt-6 max-w-md text-ink/70">
               Unicorn Auctions runs hybrid live auctions across vehicles,
-              real estate, industrial machinery and commercial inventory —
+              real estate, industrial machinery and commercial inventory
               one synchronized bidding engine, one authoritative price.
             </p>
             <div className="mt-8 flex gap-4">
@@ -27,7 +27,7 @@ export default async function HomePage() {
               >
                 View auctions
               </Link>
-              <Link href="/how-it-works" className="px-5 py-3 text-sm text-ink/70 hover:text-ink">
+              <Link href="/how-it-works" className="px-5 py-3 text-sm text-ink/70 hover:text-brass">
                 How hybrid bidding works
               </Link>
             </div>
@@ -55,7 +55,7 @@ export default async function HomePage() {
           <PathCard
             eyebrow="Bidders"
             title="Register, verify, bid"
-            body="Complete KYC, pay a refundable cautionary deposit, and bid from the floor or online — the same rules apply either way."
+            body="Complete KYC, pay a refundable cautionary deposit, and bid from the floor or online the same rules apply either way."
             href="/register"
             cta="Register to bid"
           />

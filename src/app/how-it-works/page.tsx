@@ -561,7 +561,7 @@ export default function HowItWorksPage() {
 
                             <Link
                                 href="/auctions"
-                                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink transition-colors hover:text-brass"
+                                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink/70 transition-colors hover:text-brass"
                             >
                                 Browse Auctions
                             </Link>

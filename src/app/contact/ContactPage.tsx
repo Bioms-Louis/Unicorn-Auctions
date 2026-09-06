@@ -262,7 +262,7 @@ export default function ContactPageClient() {
 
                             <Link
                                 href="/auctions"
-                                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-ink transition-colors hover:text-brass"
+                                className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold text-ink/70 transition-colors hover:text-brass"
                             >
                                 Browse Auctions
                             </Link>
@@ -614,7 +614,7 @@ export default function ContactPageClient() {
 
                                 <Link
                                     href="/register"
-                                    className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-ink transition-colors hover:text-brass"
+                                    className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-ink/70 transition-colors hover:text-brass"
                                 >
                                     Create Account
                                 </Link>

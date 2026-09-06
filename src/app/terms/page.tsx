@@ -802,7 +802,7 @@ export default function TermsPage() {
 
                             <Link
                                 href="/how-it-works"
-                                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-bold text-ink transition-colors hover:text-brass"
+                                className="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-ink/70 transition-colors hover:text-brass"
                             >
                                 How It Works
                             </Link>
