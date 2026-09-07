@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Award, Bell, Check, Gavel, Heart } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentBidder } from "@/lib/bidders/current-bidder";
 import { getBidderDashboardData, getBidderOverviewStats } from "@/lib/bidders/dashboard-queries";
@@ -32,12 +32,6 @@ export default async function DashboardOverviewPage() {
     .limit(1)
     .maybeSingle();
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("first_name")
-    .eq("id", user.id)
-    .single();
-
   const { recentBids, wonLots, watchlist, unreadNotificationCount } = await getBidderDashboardData(
     bidder.id,
     user.id,
@@ -55,12 +49,8 @@ export default async function DashboardOverviewPage() {
 
   return (
     <div>
-      <h1 className="font-display text-3xl text-ink">
-        Welcome back{profile?.first_name ? `, ${profile.first_name}` : ""}
-      </h1>
-
       {isBlocked && (
-        <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <p className="border border-red-200 bg-red-50 p-4 text-sm text-red-700">
           {bidder.state === "suspended"
             ? "Your account is currently suspended. Contact our team if you believe this is a mistake."
             : "Your application was not approved. Contact our team for more information."}
@@ -68,7 +58,7 @@ export default async function DashboardOverviewPage() {
       )}
 
       {kyc?.status === "rejected" && (
-        <p className="mt-4 border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <p className="border border-red-200 bg-red-50 p-4 text-sm text-red-700">
           Your KYC submission was not approved.{" "}
           <Link href="/dashboard/kyc" className="underline">
             Review and resubmit
@@ -78,11 +68,17 @@ export default async function DashboardOverviewPage() {
       )}
 
       {/* Stat cards */}
-      <div className="mt-8 grid grid-cols-2 gap-px border border-hairline bg-hairline md:grid-cols-4">
-        <StatCard label="Bids placed" value={stats.totalBidCount} href="/dashboard/bids" />
-        <StatCard label="Lots won" value={wonLots.length} />
-        <StatCard label="Watchlist" value={watchlist.length} href="/dashboard/watchlist" />
+      <div className="grid grid-cols-2 gap-px border border-hairline bg-hairline md:grid-cols-4">
         <StatCard
+          icon={Gavel}
+          label="Bids placed"
+          value={stats.totalBidCount}
+          href="/dashboard/bids"
+        />
+        <StatCard icon={Award} label="Lots won" value={wonLots.length} />
+        <StatCard icon={Heart} label="Watchlist" value={watchlist.length} href="/dashboard/watchlist" />
+        <StatCard
+          icon={Bell}
           label="Unread alerts"
           value={unreadNotificationCount}
           highlight={unreadNotificationCount > 0}
@@ -93,24 +89,43 @@ export default async function DashboardOverviewPage() {
       {!isBlocked && (
         <div className="mt-10 border border-hairline p-6">
           <p className="text-sm text-muted">Eligibility progress</p>
-          <ol className="mt-4 flex flex-wrap gap-x-6 gap-y-4">
+
+          <ol className="mt-6 flex flex-wrap items-start gap-y-6">
             {STEPS.map((step, index) => {
-              const done = index < currentStep || bidder.state === "bidding_enabled" && index <= currentStep;
+              const done = index < currentStep || (bidder.state === "bidding_enabled" && index <= currentStep);
               const isCurrent = index === currentStep && bidder.state !== "bidding_enabled";
+              const isLast = index === STEPS.length - 1;
+
               return (
-                <li key={step.state} className="flex items-center gap-2 text-sm">
-                  <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center border text-xs ${
-                      done
-                        ? "border-brass bg-brass text-white"
-                        : isCurrent
-                          ? "border-ink text-ink"
-                          : "border-hairline text-muted"
-                    }`}
-                  >
-                    {done ? <Check size={13} /> : index + 1}
-                  </span>
-                  <span className={done || isCurrent ? "text-ink" : "text-muted"}>{step.label}</span>
+                <li key={step.state} className="flex items-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <span
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center border text-xs transition-colors ${
+                        done
+                          ? "border-brass bg-brass text-white"
+                          : isCurrent
+                            ? "border-ink text-ink"
+                            : "border-hairline text-muted"
+                      }`}
+                    >
+                      {done ? <Check size={14} /> : index + 1}
+                    </span>
+                    <span
+                      className={`w-20 text-center text-xs leading-tight ${
+                        done || isCurrent ? "text-ink" : "text-muted"
+                      }`}
+                    >
+                      {step.label}
+                    </span>
+                  </div>
+
+                  {!isLast && (
+                    <span
+                      className={`mx-1 mb-5 h-px w-8 shrink-0 sm:w-16 ${
+                        index < currentStep ? "bg-brass" : "bg-hairline"
+                      }`}
+                    />
+                  )}
                 </li>
               );
             })}
@@ -119,7 +134,7 @@ export default async function DashboardOverviewPage() {
           {bidder.state === "pending" && (
             <Link
               href="/dashboard/kyc"
-              className="mt-5 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
+              className="mt-6 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
             >
               Complete KYC
             </Link>
@@ -127,7 +142,7 @@ export default async function DashboardOverviewPage() {
           {bidder.state === "kyc_approved" && (
             <Link
               href="/dashboard/deposit"
-              className="mt-5 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
+              className="mt-6 inline-block border border-ink px-4 py-2 text-sm text-ink hover:border-brass hover:text-brass"
             >
               Pay cautionary deposit
             </Link>
@@ -187,11 +202,13 @@ export default async function DashboardOverviewPage() {
 }
 
 function StatCard({
+  icon: Icon,
   label,
   value,
   highlight = false,
   href,
 }: {
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   label: string;
   value: number;
   highlight?: boolean;
@@ -199,7 +216,8 @@ function StatCard({
 }) {
   const content = (
     <div className={`bg-paper p-6 ${href ? "transition-colors hover:bg-ink/[0.03]" : ""}`}>
-      <p className="text-sm text-muted">{label}</p>
+      <Icon size={18} className={highlight ? "text-brass" : "text-ink/40"} />
+      <p className="mt-3 text-sm text-muted">{label}</p>
       <p className={`mt-1 font-display text-3xl ${highlight ? "text-brass" : "text-ink"}`}>{value}</p>
     </div>
   );
